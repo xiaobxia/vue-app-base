@@ -1,5 +1,5 @@
 <template>
-  <div class="login-wrap">
+  <div class="page-login">
     <h3>my mobile console</h3>
     <div class="input-item">
       <input type="text" v-model="account">
