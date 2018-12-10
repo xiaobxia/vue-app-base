@@ -1,4 +1,4 @@
-# vue-app-base
+# vue-mobile-cli
 
 > A Vue.js project
 

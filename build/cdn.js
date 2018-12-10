@@ -12,7 +12,7 @@ const config = new qiniu.conf.Config();
 //华东
 config.zone = qiniu.zone.Zone_z0;
 
-const scope = 'console-mobile';
+const scope = 'scope-name';
 /**
  * 上传部分设置
  */
