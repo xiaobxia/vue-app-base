@@ -1,22 +1,21 @@
 <template>
-  <div class="page-hello-world">
-    <mt-header title="HelloWorld" :fixed="true">
+  <div class="page-404">
+    <mt-header title="404" :fixed="true">
       <mt-button slot="left" @click="backHandler">
         <i class="fas fa-chevron-left"></i>
       </mt-button>
     </mt-header>
     <div class="main-body">
-      <h1>{{ msg }}</h1>
+      <h1>404</h1>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'NotMatch',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {

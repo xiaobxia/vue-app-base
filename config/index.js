@@ -10,8 +10,8 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      "/myService": {
-        "target": "http://localhost:4000/"
+      "/serviceBase": {
+        "target": "http://47.98.140.76:3010/"
       }
     },
 

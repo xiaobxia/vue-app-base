@@ -7,12 +7,15 @@
     <template v-else>
       <router-view v-if="subPath"/>
       <template v-else>
-        <logo v-if="tabSelect === 'logo'"></logo>
+        <mine v-if="tabSelect === 'mine'"></mine>
         <mt-tabbar v-model="tabSelect" :fixed="true">
-          <mt-tab-item id="logo">
-            <img src="./assets/logo.png" alt="" slot="icon">
+          <mt-tab-item id="index">
+            <!--<img src="./assets/logo.png" alt="" slot="icon">-->
             <!--<i class="fas fa-donate" slot="icon"></i>-->
-            <p>logo</p>
+            <h3>首页</h3>
+          </mt-tab-item>
+          <mt-tab-item id="mine">
+            <h3>我的</h3>
           </mt-tab-item>
         </mt-tabbar>
       </template>
@@ -21,27 +24,34 @@
 </template>
 
 <script>
-import Http from '@/util/httpUtil.js'
 import storageUtil from '@/util/storageUtil.js'
-import Logo from '@/tabViews/Logo/index.vue'
-
-const defaultTab = 'logo'
+import Mine from '@/tabViews/Mine/index.vue'
 
 export default {
   data () {
-    const tabSelect = storageUtil.getAppConfig('homeTabSelect') || defaultTab
     return {
-      tabSelect: tabSelect,
       subPath: false,
       ifChecked: false
     }
   },
   watch: {
     tabSelect (val) {
-      storageUtil.setAppConfig('homeTabSelect', val)
+
     }
   },
-  components: {Logo},
+  computed: {
+    tabSelect: {
+      get () {
+        console.log(this.$store.state.tabSelect)
+        return this.$store.state.tabSelect
+      },
+      set (val) {
+        storageUtil.setAppConfig('homeTabSelect', val)
+        this.$store.dispatch('setTabSelect', val)
+      }
+    }
+  },
+  components: {Mine},
   name: 'App',
   mounted () {
     this.initPage()
@@ -49,20 +59,28 @@ export default {
   methods: {
     initPage () {
       this.checkLogin()
-      this.checkPath(this.$router.history.current.path)
+      this.checkSubPath(this.$router.history.current.path)
       this.$router.afterEach((transition) => {
-        this.checkPath(transition.path)
+        // 验证路由过去是否需要登录状态
+        if (this.checkAuthPath(transition)) {
+          if (storageUtil.getUserInfo().isLogin !== true) {
+            this.$router.push('/page/login')
+          }
+        }
+        this.checkSubPath(transition.path)
       })
     },
     checkLogin () {
       const token = localStorage.getItem('token') || ''
-      Http.get('auth/checkLogin', {token}).then((data) => {
+      this.$http.get('auth/checkLogin', {token}).then((data) => {
         window._token = data.data.token
         if (data.data.isLogin === false) {
           storageUtil.initUserInfo({
             isLogin: false
           })
-          this.$router.push('/page/login')
+          if (this.checkAuthPath()) {
+            this.$router.push('/page/login')
+          }
         } else {
           storageUtil.initUserInfo({
             ...data.data,
@@ -72,8 +90,13 @@ export default {
         this.ifChecked = true
       })
     },
-    checkPath (path) {
+    checkSubPath (path) {
       this.subPath = path.startsWith('/page')
+    },
+    checkAuthPath (current) {
+      const now = current || this.$router.history.current
+      // 需要鉴权的才转登录
+      return now.meta && now.meta.auth === true
     }
   }
 }

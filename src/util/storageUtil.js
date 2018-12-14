@@ -10,6 +10,9 @@ function localStorageGetItem (key) {
 function localStorageSetItem (key, data) {
   return localStorage.setItem(formatKey(key), data)
 }
+function localStorageRemoveItem (key, data) {
+  return localStorage.removeItem(formatKey(key))
+}
 const storageUtil = {
   getAppConfig: function (key) {
     let config = {}
@@ -61,6 +64,10 @@ const storageUtil = {
     window._userInfo = info
     localStorageSetItem('userInfo', JSON.stringify(info))
     return info
+  },
+  removeUserInfo: function () {
+    window._userInfo = null
+    localStorageRemoveItem('userInfo')
   },
   getSearchHistory: function (key) {
     let searchHistory = {}

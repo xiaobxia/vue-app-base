@@ -1,7 +1,7 @@
 import axios from 'axios'
 import qs from 'qs'
 import router from '../router/index'
-const basePath = '/myService/'
+const basePath = '/serviceBase/'
 
 axios.interceptors.request.use(function (config) {
   config.headers.token = window._token || localStorage.getItem('token') || ''

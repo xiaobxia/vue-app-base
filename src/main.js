@@ -8,6 +8,8 @@ import './style/main.scss'
 import VCharts from 'v-charts'
 import '../static/web-fonts-with-css/css/fontawesome-all.css'
 import environmentUtil from './util/environmentUtil'
+import Http from '@/util/httpUtil.js'
+import store from './store'
 
 environmentUtil.setAdaptive()
 
@@ -16,10 +18,13 @@ Vue.use(VCharts)
 
 Vue.config.productionTip = false
 
+Vue.prototype.$http = Http
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
