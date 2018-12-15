@@ -1,8 +1,15 @@
 <template>
-  <div class="tab-view-mine">
-    <div class="btn-wrap">
-      <mt-button type="primary" @click="okHandler" class="main-btn">退出登录</mt-button>
-    </div>
+  <div class="tab-view tab-view-mine">
+    <template v-if="!ifUser">
+      <p>用户未登录</p>
+      <div @click="toLoginHandler" >去登陆</div>
+    </template>
+    <template v-else>
+      <div class="btn-wrap">
+        <p>{{user.name}}</p>
+        <mt-button type="primary" @click="logoutHandler" class="main-btn">退出登录</mt-button>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -12,13 +19,19 @@ import storageUtil from '@/util/storageUtil.js'
 export default {
   name: 'Mine',
   data () {
+    const user = storageUtil.getUserInfo()
     return {
+      ifUser: user.isLogin === true,
+      user: user
     }
   },
   methods: {
     initPage () {
     },
-    okHandler () {
+    toLoginHandler () {
+      this.$router.push('/page/login')
+    },
+    logoutHandler () {
       this.$http.get('auth/logout', {token: window._token, platform: 'mobile'}).then((data) => {
         if (data.success) {
           localStorage.removeItem('token')
@@ -36,18 +49,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>

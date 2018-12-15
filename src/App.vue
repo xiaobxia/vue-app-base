@@ -7,6 +7,7 @@
     <template v-else>
       <router-view v-if="subPath"/>
       <template v-else>
+        <index v-if="tabSelect === 'index'"/>
         <mine v-if="tabSelect === 'mine'"></mine>
         <mt-tabbar v-model="tabSelect" :fixed="true">
           <mt-tab-item id="index">
@@ -26,6 +27,7 @@
 <script>
 import storageUtil from '@/util/storageUtil.js'
 import Mine from '@/tabViews/Mine/index.vue'
+import Index from '@/tabViews/Index/index.vue'
 
 export default {
   data () {
@@ -42,7 +44,6 @@ export default {
   computed: {
     tabSelect: {
       get () {
-        console.log(this.$store.state.tabSelect)
         return this.$store.state.tabSelect
       },
       set (val) {
@@ -51,7 +52,7 @@ export default {
       }
     }
   },
-  components: {Mine},
+  components: {Index, Mine},
   name: 'App',
   mounted () {
     this.initPage()
@@ -60,6 +61,15 @@ export default {
     initPage () {
       this.checkLogin()
       this.checkSubPath(this.$router.history.current.path)
+      this.$router.beforeEach((transition, from, next) => {
+        if (this.checkAuthPath(transition)) {
+          if (storageUtil.getUserInfo().isLogin !== true) {
+            this.$router.push('/page/login')
+          }
+        }
+        this.checkSubPath(transition.path)
+        next()
+      })
       this.$router.afterEach((transition) => {
         // 验证路由过去是否需要登录状态
         if (this.checkAuthPath(transition)) {
@@ -91,7 +101,8 @@ export default {
       })
     },
     checkSubPath (path) {
-      this.subPath = path.startsWith('/page')
+      this.subPath = path !== '/'
+      // this.subPath = path.startsWith('/page')
     },
     checkAuthPath (current) {
       const now = current || this.$router.history.current

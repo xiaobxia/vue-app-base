@@ -4,6 +4,9 @@
       <mt-button slot="left" @click="backHandler">
         <i class="fas fa-chevron-left"></i>
       </mt-button>
+      <mt-button slot="right">
+        <i class="fas fa-plus"></i>
+      </mt-button>
     </mt-header>
     <div class="main-body">
       <h1>{{ msg }}</h1>
