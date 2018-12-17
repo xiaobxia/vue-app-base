@@ -10,6 +10,7 @@ const store = new Vuex.Store({
   state: {
     tabSelect: storageUtil.getAppConfig('homeTabSelect') || defaultTab
   },
+  // getters就是state的计算属性
   getters: {
     // tabSelect: state => {
     //   return state.tabSelect
