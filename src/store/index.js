@@ -7,6 +7,7 @@ Vue.use(Vuex)
 const defaultTab = 'index'
 
 const store = new Vuex.Store({
+  strict: process.env.NODE_ENV !== 'production',
   state: {
     tabSelect: storageUtil.getAppConfig('homeTabSelect') || defaultTab
   },
