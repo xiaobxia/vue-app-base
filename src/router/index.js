@@ -18,13 +18,21 @@ const routers = [
     path: '/page/helloWorld',
     component: lazyLoading('HelloWorld'),
     meta: {
-      auth: true
+      auth: true,
+      roles: {
+        include: ['admin']
+      }
     }
   },
   {
     name: 'Login',
     path: '/page/login',
     component: lazyLoading('Login')
+  },
+  {
+    name: 'NoPermission',
+    path: '/noPermission',
+    component: lazyLoading('NoPermission')
   },
   {
     name: '404',
