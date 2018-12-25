@@ -1,5 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
+import storageUtil from '@/utils/storageUtil'
 import router from '../router/index'
 const basePath = '/serviceBase/'
 
@@ -53,7 +54,7 @@ const Http = {
     } else {
       queryString = qs.stringify({timestamp: new Date().getTime()})
     }
-    let cacheData = localStorage.getItem(cacheKey)
+    let cacheData = storageUtil.getQueryCache(cacheKey)
     if (cacheData) {
       let cacheDataRaw = JSON.parse(cacheData)
       // 可以使用缓存
@@ -68,7 +69,7 @@ const Http = {
         time: Date.now(),
         data: data.data
       }
-      localStorage.setItem(cacheKey, JSON.stringify(cacheData))
+      storageUtil.setQueryCache(cacheKey, JSON.stringify(cacheData))
       return data.data
     })
   },

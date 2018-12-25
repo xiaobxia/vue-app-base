@@ -10,7 +10,7 @@ function localStorageGetItem (key) {
 function localStorageSetItem (key, data) {
   return localStorage.setItem(formatKey(key), data)
 }
-function localStorageRemoveItem (key, data) {
+function localStorageRemoveItem (key) {
   return localStorage.removeItem(formatKey(key))
 }
 const storageUtil = {
@@ -91,6 +91,24 @@ const storageUtil = {
     window._searchHistory = searchHistory
     localStorageSetItem('searchHistory', JSON.stringify(searchHistory))
     return searchHistory
+  },
+  setQueryCache: function (key, value) {
+    return localStorageSetItem('cache-' + key, value)
+  },
+  getQueryCache: function (key) {
+    return localStorageGetItem('cache-' + key)
+  },
+  clearQueryCache: function (key) {
+    if (key) {
+      return localStorageRemoveItem('cache-' + key)
+    } else {
+      for (let itemKey in localStorage) {
+        if (itemKey.startsWith(formatKey('cache-'))) {
+          localStorage.removeItem(itemKey)
+        }
+      }
+      return true
+    }
   }
 }
 

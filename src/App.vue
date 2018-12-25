@@ -51,11 +51,14 @@ export default {
         this.$store.dispatch('setTabSelect', val)
       }
     }
-  },
   components: {Index, Mine},
-  name: 'App',
+
+},  name: 'App',
   mounted () {
     this.initPage()
+    setInterval(() => {
+      storageUtil.clearQueryCache()
+    }, 1000 * 60 * 5)
   },
   methods: {
     initPage () {
