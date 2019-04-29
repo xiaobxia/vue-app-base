@@ -40,13 +40,12 @@ export default {
   },
   methods: {
     showMarquee: function () {
+      // 思路，把list整体往上移30px（有移动动画），这时显示的是2
+      // 然后让2排在最前面，并去掉上移和动画
       this.animate = true
-
       setTimeout(() => {
         this.marqueeList.push(this.marqueeList[0])
-
         this.marqueeList.shift()
-
         this.animate = false
       }, 500)
     }
@@ -109,7 +108,6 @@ export default {
 
   .marquee_top {
     transition: all 0.5s;
-
     margin-top: -30px;
   }
 
