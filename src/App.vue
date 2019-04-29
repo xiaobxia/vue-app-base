@@ -30,6 +30,7 @@ import Mine from '@/tabViews/Mine/index.vue'
 import Index from '@/tabViews/Index/index.vue'
 
 export default {
+  name: 'App',
   data () {
     return {
       subPath: false,
@@ -51,9 +52,8 @@ export default {
         this.$store.dispatch('setTabSelect', val)
       }
     }
+  },
   components: {Index, Mine},
-
-},  name: 'App',
   mounted () {
     this.initPage()
     setInterval(() => {

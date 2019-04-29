@@ -10,11 +10,13 @@
     </mt-header>
     <div class="main-body">
       <h1>{{ msg }}</h1>
+      <rolling-notice/>
     </div>
   </div>
 </template>
 
 <script>
+import RollingNotice from '../../components/RollingNotice/index.vue'
 export default {
   name: 'HelloWorld',
   data () {
@@ -22,6 +24,7 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
+  components: {RollingNotice},
   methods: {
     backHandler () {
       this.$router.history.go(-1)

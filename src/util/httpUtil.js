@@ -1,6 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
-import storageUtil from '@/utils/storageUtil'
+import storageUtil from '@/util/storageUtil'
 import router from '../router/index'
 const basePath = '/serviceBase/'
 
