@@ -4,13 +4,13 @@ import Vue from 'vue'
 import router from './router/index'
 import App from './App'
 import './style/main.scss'
-import { Button } from 'vant'
+import Vant from 'vant'
 // import '../static/web-fonts-with-css/css/fontawesome-all.css'
 import environmentUtil from './util/environmentUtil'
 import Http from '@/util/httpUtil.js'
 import store from './store'
 
-Vue.use(Button)
+Vue.use(Vant)
 
 Vue.config.productionTip = false
 

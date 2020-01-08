@@ -2,18 +2,18 @@ const gulp = require('gulp');
 const replace = require('gulp-replace');
 const gulpif = require('gulp-if');
 const srcFiles = [
-  './src/**'
+  './src/style/vant-raw/*.css'
 ];
-gulp.task('pxtorpx', function(done){
+gulp.task('doublepx', function(done){
   gulp.src(srcFiles)
-    .pipe(gulpif(true, replace(/['"](\d+)rpx['"]|\b(\d+)rpx\b/g, function(pixel) {
+    .pipe(gulpif(true, replace(/['"](\d+)px['"]|\b(\d+)px\b/g, function(pixel) {
+      console.log(pixel, '=>', ( parseInt(pixel) * 2 ) + 'px');
       if ( /'|"/.test(pixel) || '0px'=== pixel || '1px' === pixel) {
         return pixel;
       }
-      return ( parseInt(pixel)) + 'px';
+      return ( parseInt(pixel) * 2 ) + 'px';
     })))
-    .pipe(gulp.dest('./src'));
+    .pipe(gulp.dest('./src/style/vant'));
   done();
 });
-gulp.task('default', ['pxtorpx']);
-
+gulp.task('default', ['doublepx']);

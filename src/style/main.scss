@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 @import "_var";
+@import "vant/index.css";
 @import "component/header";
 @import "component/tabbar";
 @import "component/switch";
@@ -25,17 +26,17 @@ body {
 
 ::-webkit-scrollbar {
   width: 8px;
-  height: 8px
+  height: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #bebdbd;
-  border-radius: 4px
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #666;
-  opacity: .5
+  opacity: .5;
 }
 
 ::-webkit-scrollbar-track-piece:decrement, ::-webkit-scrollbar-track-piece:increment {
@@ -92,6 +93,7 @@ ul {
 }
 
 .loading-wrap {
+  width: 400px;
   margin-top: 400px;
   text-align: center;
   color: $lighter-text-color;
