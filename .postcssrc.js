@@ -7,14 +7,14 @@ module.exports = {
     // to edit target browsers: use "browserslist" field in package.json
     "autoprefixer": {},
     "postcss-pxtorem": {
-      rootValue: 20,
+      rootValue: 37.5,
       unitPrecision: 5,
       propList: ['*'],
       selectorBlackList: [],
       replace: true,
       mediaQuery: false,
       //太小的不转换
-      minPixelValue: 3
+      minPixelValue: 1
     },
   }
 }

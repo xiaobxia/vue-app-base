@@ -1,6 +1,6 @@
 const environmentUtil = {
   setAdaptive () {
-    let baseFontSize = 20
+    let baseFontSize = 37.5
     // 和width有关
     let winWidth = 0
     let winHeight = 0
@@ -47,7 +47,7 @@ const environmentUtil = {
       dpr: dpr,
       fontSize: fontSize,
       baseFontSize: baseFontSize,
-      zoom: fontSize / 20
+      zoom: fontSize / baseFontSize
     }
   }
 }
