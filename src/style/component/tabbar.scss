@@ -3,8 +3,8 @@
   background-color: $body-color;
   color: $lighter-text-color;
   .mint-tab-item {
-    height: 90px;
-    padding: 5px 0;
+    height: 90rpx;
+    padding: 5rpx 0;
     &.is-selected {
       background-color: $body-color;
       .mint-tab-item-icon, .mint-tab-item-label {
@@ -14,12 +14,12 @@
   }
   .mint-tab-item-icon {
     margin: 0 auto;
-    width: 65px;
-    height: 65px;
-    font-size: 50px;
+    width: 65rpx;
+    height: 65rpx;
+    font-size: 50rpx;
   }
   .mint-tab-item-label {
-    font-size: 20px;
+    font-size: 20rpx;
     color: $light-text-color;
     p {
       margin: 0;

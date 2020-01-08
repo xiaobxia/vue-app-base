@@ -1,21 +1,21 @@
 .mint-switch-input:checked + .mint-switch-core::after {
-  transform: translateX(32px);
+  transform: translateX(32rpx);
 }
 
 .mint-switch {
   .mint-switch-core {
-    height: 48px;
-    width: 80px;
-    border-radius: 48px;
+    height: 48rpx;
+    width: 80rpx;
+    border-radius: 48rpx;
     &::after {
-      width: 46px;
-      height: 46px;
-      border-radius: 46px;
+      width: 46rpx;
+      height: 46rpx;
+      border-radius: 46rpx;
     }
     &::before {
-      width: 80px;
-      height: 46px;
-      border-radius: 46px;
+      width: 80rpx;
+      height: 46rpx;
+      border-radius: 46rpx;
     }
   }
 }

@@ -9,21 +9,21 @@
       color: $red-color;
     }
   }
-  width: 400px;
-  height: 400px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px $shadow-color;
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 0 20rpx $shadow-color;
   border: 1px solid $border-color;
   background-color: #fff;
   text-align: center;
   .mint-toast-text {
-    font-size: 40px;
+    font-size: 40rpx;
   }
   .icon {
     display: inline-block;
-    margin: 60px 0;
-    height: 145px;
-    width: 145px;
-    font-size: 145px;
+    margin: 60rpx 0;
+    height: 145rpx;
+    width: 145rpx;
+    font-size: 145rpx;
   }
 }

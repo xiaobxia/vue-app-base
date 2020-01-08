@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     showMarquee: function () {
-      // 思路，把list整体往上移30px（有移动动画），这时显示的是2
+      // 思路，把list整体往上移30rpx（有移动动画），这时显示的是2
       // 然后让2排在最前面，并去掉上移和动画
       this.animate = true
       setTimeout(() => {
@@ -57,7 +57,7 @@ export default {
   .marquee {
     width: 100%;
 
-    height: 50px;
+    height: 50rpx;
 
     align-items: center;
 
@@ -73,11 +73,11 @@ export default {
   }
 
   .marquee_title {
-    padding: 0 20px;
+    padding: 0 20rpx;
 
-    height: 21px;
+    height: 21rpx;
 
-    font-size: 14px;
+    font-size: 14rpx;
 
     border-right: 1px solid #d8d8d8;
 
@@ -91,7 +91,7 @@ export default {
 
     width: 60%;
 
-    height: 30px;
+    height: 30rpx;
 
     overflow: hidden;
   }
@@ -108,19 +108,19 @@ export default {
 
   .marquee_top {
     transition: all 0.5s;
-    margin-top: -30px;
+    margin-top: -30rpx;
   }
 
   .marquee_list li {
-    height: 30px;
+    height: 30rpx;
 
-    line-height: 30px;
+    line-height: 30rpx;
 
-    font-size: 14px;
+    font-size: 14rpx;
 
-    padding-left: 20px;
+    padding-left: 20rpx;
   }
   .marquee_list li span {
-    padding: 0 2px;
+    padding: 0 2rpx;
   }
 </style>

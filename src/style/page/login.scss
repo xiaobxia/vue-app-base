@@ -1,22 +1,22 @@
 .page-login {
   position: relative;
-  margin: 200px auto 0 auto;
+  margin: 200rpx auto 0 auto;
   width: 100%;
-  padding: 0 50px;
+  padding: 0 50rpx;
   box-sizing: border-box;
   h3 {
     text-align: center;
-    font-size: 56px;
+    font-size: 56rpx;
   }
   .input-item {
-    margin-bottom: 60px;
+    margin-bottom: 60rpx;
     width: 100%;
   }
   input {
-    padding: 0 60px;
+    padding: 0 60rpx;
     width: 100%;
-    height: 60px;
-    font-size: 34px;
+    height: 60rpx;
+    font-size: 34rpx;
     border: none;
     border-bottom: 1px solid $border-color;
     box-sizing: border-box;

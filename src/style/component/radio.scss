@@ -1,26 +1,26 @@
 .mint-radiolist {
   .mint-cell {
     position: relative;
-    padding: 20px 30px;
+    padding: 20rpx 30rpx;
     border-bottom: 1px solid $border-color;
     .mint-radiolist-label {
       padding: 0;
     }
     .mint-radio-label {
       margin: 0;
-      font-size: 30px;
-      line-height: 40px;
+      font-size: 30rpx;
+      line-height: 40rpx;
     }
   }
   .mint-radio {
     .mint-radio-core {
-      width: 40px;
-      height: 40px;
+      width: 40rpx;
+      height: 40rpx;
       &::after {
-        top: 7px;
-        left: 7px;
-        width: 24px;
-        height: 24px;
+        top: 7rpx;
+        left: 7rpx;
+        width: 24rpx;
+        height: 24rpx;
       }
     }
   }

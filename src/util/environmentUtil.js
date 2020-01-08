@@ -1,6 +1,6 @@
 const environmentUtil = {
   setAdaptive () {
-    let baseFontSize = 37.5
+    let baseFontSize = 75
     // 和width有关
     let winWidth = 0
     let winHeight = 0

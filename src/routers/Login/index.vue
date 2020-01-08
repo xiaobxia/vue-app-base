@@ -52,4 +52,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .input-item {
+    width: 660rpx;
+  }
 </style>

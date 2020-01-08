@@ -1,16 +1,16 @@
 .img-card {
   position: relative;
   display: inline-block;
-  width: 340px;
-  margin: 30px 0 0 20px;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgb(230,230,230);
-  //border: 4px solid $border-color;
+  width: 340rpx;
+  margin: 30rpx 0 0 20rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 0 30rpx rgb(230,230,230);
+  //border: 4rpx solid $border-color;
   overflow: hidden;
   color: $lighter-text-color;
   img {
-    width: 180px;
-    height: 180px;
+    width: 180rpx;
+    height: 180rpx;
   }
   .container {
     background-color: #fff;
@@ -19,16 +19,16 @@
     }
   }
   .content {
-    padding: 20px 0 0 0;
+    padding: 20rpx 0 0 0;
     text-align: center;
     i {
-      font-size: 160px;
+      font-size: 160rpx;
     }
   }
   .bottom {
-    padding: 0 0 20px 0;
+    padding: 0 0 20rpx 0;
     text-align: center;
-    font-size: 40px;
+    font-size: 40rpx;
     font-weight: bold;
   }
 }
