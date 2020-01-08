@@ -1,6 +1,6 @@
 <template>
   <div class="page-login">
-    <h3>my mobile console</h3>
+    <h3>my mobile</h3>
     <div class="input-item">
       <input type="text" v-model="account">
     </div>
@@ -8,13 +8,12 @@
       <input type="text" v-model="password">
     </div>
     <div class="input-item">
-      <mt-button type="primary" @click="loginHandler">登录</mt-button>
+      <van-button type="info" @click="loginHandler">登录</van-button>
     </div>
   </div>
 </template>
 
 <script>
-import Http from '@/util/httpUtil.js'
 import md5 from 'md5'
 import storageUtil from '@/util/storageUtil.js'
 
@@ -34,7 +33,7 @@ export default {
     initPage () {
     },
     loginHandler () {
-      Http.post('auth/login', {account: this.account, password: md5(this.password), platform: 'pc'}).then((data) => {
+      this.$http.post('auth/login', {account: this.account, password: md5(this.password)}).then((data) => {
         if (data.success) {
           window._token = data.data.token
           localStorage.setItem('token', data.data.token)
