@@ -14,6 +14,7 @@ function getIndex (target, filterModel) {
   }
 }
 const arrayUtil = {
+  // 查找对象数据的项
   findObjectItem (array, keyName, keyValue) {
     for (let k = 0, len = array.length; k < len; k++) {
       if (array[k][keyName] === keyValue) {
@@ -21,6 +22,7 @@ const arrayUtil = {
       }
     }
   },
+  // 移除对象数据的项
   removeObjectItem (array, keyName, keyValue) {
     for (let i = 0; i < array.length; i++) {
       let item = array[i]
