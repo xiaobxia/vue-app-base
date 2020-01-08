@@ -20,17 +20,17 @@
 body {
   margin: 0;
   background-color: $body-color;
-  font-size: 30rpx;
+  font-size: 30px;
 }
 
 ::-webkit-scrollbar {
-  width: 8rpx;
-  height: 8rpx
+  width: 8px;
+  height: 8px
 }
 
 ::-webkit-scrollbar-thumb {
   background: #bebdbd;
-  border-radius: 4rpx
+  border-radius: 4px
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -50,19 +50,19 @@ body {
 }
 
 .main-body {
-  margin-top: 90rpx;
+  margin-top: 90px;
 }
 
 .tab-view {
-  margin-bottom: 90rpx;
+  margin-bottom: 90px;
 }
 
 .has-bar {
-  margin-bottom: 145rpx;
+  margin-bottom: 145px;
 }
 
 .net-line {
-  height: 450rpx;
+  height: 450px;
 }
 
 .red-text {
@@ -87,18 +87,18 @@ ul {
 }
 
 .content {
-  padding: 30rpx;
-  font-size: 30rpx;
+  padding: 30px;
+  font-size: 30px;
 }
 
 .loading-wrap {
-  margin-top: 400rpx;
+  margin-top: 400px;
   text-align: center;
   color: $lighter-text-color;
   i {
-    font-size: 160rpx;
+    font-size: 160px;
   }
   p {
-    font-size: 40rpx;
+    font-size: 40px;
   }
 }

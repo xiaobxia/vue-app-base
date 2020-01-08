@@ -6,11 +6,11 @@ const srcFiles = [
 ];
 gulp.task('pxtorpx', function(done){
   gulp.src(srcFiles)
-    .pipe(gulpif(true, replace(/['"](\d+)px['"]|\b(\d+)px\b/g, function(pixel) {
+    .pipe(gulpif(true, replace(/['"](\d+)rpx['"]|\b(\d+)rpx\b/g, function(pixel) {
       if ( /'|"/.test(pixel) || '0px'=== pixel || '1px' === pixel) {
         return pixel;
       }
-      return ( parseInt(pixel)) + 'rpx';
+      return ( parseInt(pixel)) + 'px';
     })))
     .pipe(gulp.dest('./src'));
   done();
