@@ -19,7 +19,7 @@ import storageUtil from '@/util/storageUtil.js'
 export default {
   name: 'Mine',
   data () {
-    const user = storageUtil.getUserInfo()
+    const user = storageUtil.getData('UserInfo')
     return {
       ifUser: user.isLogin === true,
       user: user
@@ -35,7 +35,7 @@ export default {
       this.$http.get('auth/logout', {token: window._token, platform: 'mobile'}).then((data) => {
         if (data.success) {
           localStorage.removeItem('token')
-          storageUtil.initUserInfo({
+          storageUtil.setData('UserInfo', {
             isLogin: false
           })
           this.$store.dispatch('setTabSelect', 'index')

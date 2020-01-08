@@ -48,7 +48,7 @@ export default {
         return this.$store.state.tabSelect
       },
       set (val) {
-        storageUtil.setAppConfig('homeTabSelect', val)
+        storageUtil.setData('AppConfig', 'homeTabSelect', val)
         this.$store.dispatch('setTabSelect', val)
       }
     }
@@ -69,7 +69,7 @@ export default {
         console.log('before')
         console.log(transition)
         if (this.checkAuthPath(transition)) {
-          const user = storageUtil.getUserInfo()
+          const user = storageUtil.getData('UserInfo')
           this.checkUser(user, transition)
         }
         this.checkSubPath(transition.path)
@@ -80,7 +80,7 @@ export default {
         console.log('after')
         // 验证路由过去是否需要登录状态
         if (this.checkAuthPath(transition)) {
-          const user = storageUtil.getUserInfo()
+          const user = storageUtil.getData('UserInfo')
           this.checkUser(user, transition)
         }
         this.checkSubPath(transition.path)
@@ -91,15 +91,15 @@ export default {
       this.$http.get('auth/checkLogin', {token}).then((data) => {
         window._token = data.data.token
         if (data.data.isLogin === false) {
-          storageUtil.initUserInfo({
+          storageUtil.setData('UserInfo', {
             isLogin: false
           })
-          const user = storageUtil.getUserInfo()
+          const user = storageUtil.getData('UserInfo')
           if (user.isLogin !== true) {
             this.$router.push('/page/login')
           }
         } else {
-          storageUtil.initUserInfo({
+          storageUtil.setData('UserInfo', {
             ...data.data,
             isLogin: true
           })

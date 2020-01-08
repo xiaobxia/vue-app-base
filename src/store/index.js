@@ -9,7 +9,7 @@ const defaultTab = 'index'
 const store = new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
   state: {
-    tabSelect: storageUtil.getAppConfig('homeTabSelect') || defaultTab
+    tabSelect: storageUtil.getData('AppConfig', 'homeTabSelect') || defaultTab
   },
   // getters就是state的计算属性
   getters: {

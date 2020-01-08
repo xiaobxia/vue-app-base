@@ -5,7 +5,7 @@ import router from '../router/index'
 
 let basePath = '/vueMobileCli/'
 
-function getUrlParamValue(name) {
+function getUrlParamValue (name) {
   if (name == null || name === 'undefined') { return null }
   var searchStr = decodeURI(location.search)
   var infoIndex = searchStr.indexOf(name + '=')
@@ -39,7 +39,7 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
-function makeUrl(url) {
+function makeUrl (url) {
   if (url.startsWith('/') || url.startsWith('http://') || url.startsWith('https://')) {
     return url
   } else {

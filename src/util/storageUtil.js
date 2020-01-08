@@ -1,17 +1,17 @@
-function formatKey(key) {
+function formatKey (key) {
   return `vueMobileCli-${key}`
 }
-function localStorageGetItem(key) {
+function localStorageGetItem (key) {
   return localStorage.getItem(formatKey(key))
 }
-function localStorageSetItem(key, data) {
+function localStorageSetItem (key, data) {
   return localStorage.setItem(formatKey(key), data)
 }
-function localStorageRemoveItem(key) {
+function localStorageRemoveItem (key) {
   return localStorage.removeItem(formatKey(key))
 }
 const storageUtil = {
-  getData: function(name, key) {
+  getData: function (name, key) {
     let value = {}
     if (window[`_${name}`]) {
       value = window[`_${name}`]
@@ -27,7 +27,7 @@ const storageUtil = {
     }
     return value
   },
-  setData: function(name, key, value) {
+  setData: function (name, key, value) {
     let data = this.getData(name)
     if (typeof key === 'object') {
       value = key
@@ -39,10 +39,28 @@ const storageUtil = {
     localStorageSetItem(name, JSON.stringify(data))
     return data
   },
-  clearAll: function() {
+  clearAll: function () {
     window.localStorage.clear()
   },
-  localStorageRemoveItem
+  localStorageRemoveItem,
+  setQueryCache: function (key, value) {
+    return sessionStorage.setItem('cache-' + key, value)
+  },
+  getQueryCache: function (key) {
+    return sessionStorage.getItem('cache-' + key)
+  },
+  clearQueryCache: function (key) {
+    if (key) {
+      return sessionStorage.removeItem('cache-' + key)
+    } else {
+      for (const itemKey in sessionStorage) {
+        if (itemKey.startsWith('cache-')) {
+          sessionStorage.removeItem(itemKey)
+        }
+      }
+      return true
+    }
+  }
 }
 
 export default storageUtil

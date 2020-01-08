@@ -17,7 +17,6 @@
 import Http from '@/util/httpUtil.js'
 import md5 from 'md5'
 import storageUtil from '@/util/storageUtil.js'
-import Toast from '@/common/toast.js'
 
 export default {
   name: 'Login',
@@ -40,13 +39,11 @@ export default {
           window._token = data.data.token
           localStorage.setItem('token', data.data.token)
           this.$router.push('/')
-          storageUtil.initUserInfo({
+          storageUtil.setData('UserInfo', {
             ...data.data,
             isLogin: true
           })
-          Toast.success('登录成功')
         } else {
-          Toast.error(data.message)
         }
       })
     }
