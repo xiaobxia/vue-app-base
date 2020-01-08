@@ -1,24 +1,29 @@
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
-
+const proxyTable = require('./proxyTable')
 const path = require('path')
+
+const newProxyTable = {}
+for (const key in proxyTable) {
+  let row = {
+    target: proxyTable[key],
+    changeOrigin: true,
+    pathRewrite: {}
+  }
+  row.pathRewrite[`^/${key}`] = ''
+  newProxyTable[`/${key}/vueMobileCli`] = row
+}
 
 module.exports = {
   dev: {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      "/serviceBase": {
-        "target": "http://47.98.140.76:3010/"
-        // "target": "http://localhost:3010/"
-      }
-    },
-
+    proxyTable: newProxyTable,
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
-    port: 3000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    host: '0.0.0.0', // can be overwritten by process.env.HOST
+    port: 4000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,

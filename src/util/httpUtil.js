@@ -3,7 +3,7 @@ import qs from 'qs'
 import storageUtil from '@/util/storageUtil'
 import router from '../router/index'
 
-let basePath = '/serviceBase/'
+let basePath = '/vueMobileCli/'
 
 function getUrlParamValue(name) {
   if (name == null || name === 'undefined') { return null }

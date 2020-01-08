@@ -1,5 +1,5 @@
 function formatKey(key) {
-  return `vueAdminCli-${key}`
+  return `vueMobileCli-${key}`
 }
 function localStorageGetItem(key) {
   return localStorage.getItem(formatKey(key))
