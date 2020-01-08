@@ -8,12 +8,13 @@
     }],
     "stage-2"
   ],
-  "plugins": ["transform-vue-jsx", "transform-runtime",["component", [
-    {
-      "libraryName": "mint-ui",
-      "style": false
-    }
-  ]]],
+  "plugins": [
+    ["import", {
+      "libraryName": "vant",
+      "libraryDirectory": "es",
+      "style": true
+    }]
+  ],
   "env": {
     "test": {
       "presets": ["env", "stage-2"],
