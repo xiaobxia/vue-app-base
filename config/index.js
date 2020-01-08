@@ -12,7 +12,7 @@ for (const key in proxyTable) {
     pathRewrite: {}
   }
   row.pathRewrite[`^/${key}`] = ''
-  newProxyTable[`/${key}/vueMobileCli`] = row
+  newProxyTable[`/${key}/serverBase`] = row
 }
 
 module.exports = {

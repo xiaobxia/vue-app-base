@@ -1,23 +1,14 @@
 import axios from 'axios'
 import qs from 'qs'
 import storageUtil from '@/util/storageUtil'
+import urlUtil from '@/util/urlUtil'
 import router from '../router/index'
 
-let basePath = '/vueMobileCli/'
+let basePath = '/serverBase/'
 
-function getUrlParamValue (name) {
-  if (name == null || name === 'undefined') { return null }
-  var searchStr = decodeURI(location.search)
-  var infoIndex = searchStr.indexOf(name + '=')
-  if (infoIndex === -1) { return null }
-  var searchInfo = searchStr.substring(infoIndex + name.length + 1)
-  var tagIndex = searchInfo.indexOf('&')
-  if (tagIndex !== -1) { searchInfo = searchInfo.substring(0, tagIndex) }
-  return searchInfo
-}
 // 默认连接地址，只在调试时有用
 if (process.env.NODE_ENV === 'development') {
-  basePath = `/${getUrlParamValue('pt') || 'main'}${basePath}`
+  basePath = `/${urlUtil.getQueryStringArgs('pt') || 'main'}${basePath}`
 }
 
 axios.interceptors.request.use(function (config) {
@@ -29,10 +20,10 @@ axios.interceptors.request.use(function (config) {
 
 axios.interceptors.response.use(function (response) {
   if (response.data.success === false) {
-    console.error(response.data.message)
     if (response.data.code === 401) {
-      router.push('/page/login')
+      router.replace('/page/login')
     }
+    return Promise.reject(new Error(response.data.message))
   }
   return response
 }, function (error) {

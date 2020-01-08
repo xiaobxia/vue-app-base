@@ -56,9 +56,6 @@ export default {
   components: {Index, Mine},
   mounted () {
     this.initPage()
-    setInterval(() => {
-      storageUtil.clearQueryCache()
-    }, 1000 * 60 * 5)
   },
   methods: {
     initPage () {

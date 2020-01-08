@@ -10,6 +10,7 @@ import './style/main.scss'
 import environmentUtil from './util/environmentUtil'
 import Http from '@/util/httpUtil.js'
 import store from './store'
+import urlUtil from '@/util/urlUtil.js'
 
 environmentUtil.setAdaptive()
 
