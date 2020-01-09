@@ -4,8 +4,8 @@
       <router-view/>
     </div>
     <van-tabbar v-model="active">
-      <van-tabbar-item name="main" icon="home-o" replace to="/home/main">主页</van-tabbar-item>
-      <van-tabbar-item name="mine" icon="setting-o" info="20" replace to="/home/mine">我的</van-tabbar-item>
+      <van-tabbar-item name="/home/main" icon="home-o" replace to="/home/main">主页</van-tabbar-item>
+      <van-tabbar-item name="/home/mine" icon="setting-o" info="20" replace to="/home/mine">我的</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
@@ -19,6 +19,12 @@ export default {
     }
   },
   created () {
+    this.active = this.$route.path
+  },
+  watch: {
+    '$route.path' (value) {
+      this.active = value
+    }
   },
   methods: {
     backHandler () {

@@ -1,22 +1,10 @@
 <template>
   <div class="page-hello-world">
-    <mt-header title="HelloWorld" :fixed="true">
-      <mt-button slot="left" @click="backHandler">
-        <i class="fas fa-chevron-left"></i>
-      </mt-button>
-      <mt-button slot="right">
-        <i class="fas fa-plus"></i>
-      </mt-button>
-    </mt-header>
-    <div class="main-body">
-      <h1>{{ msg }}</h1>
-      <rolling-notice/>
-    </div>
+    <span>hello-world</span>
   </div>
 </template>
 
 <script>
-import RollingNotice from '../../components/RollingNotice/index.vue'
 export default {
   name: 'HelloWorld',
   data () {
@@ -24,7 +12,8 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
-  components: {RollingNotice},
+  created () {
+  },
   methods: {
     backHandler () {
       this.$router.history.go(-1)
@@ -33,6 +22,5 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style rel="stylesheet/scss" lang="scss" scoped>
 </style>
