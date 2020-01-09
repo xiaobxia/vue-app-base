@@ -12,11 +12,11 @@ const fileUtil = {
     return ''
   },
   // 通过base64创建图片
-  createBase64Img(type, str) {
+  createBase64Img (type, str) {
     return `data:image/${type};base64,${str}`
   },
   // 下载文件流
-  downloadBlob(data, name, type) {
+  downloadBlob (data, name, type) {
     const blob = new Blob([data])
     const downloadElement = document.createElement('a')
     const href = window.URL.createObjectURL(blob) // 创建下载的链接
@@ -28,7 +28,7 @@ const fileUtil = {
     window.URL.revokeObjectURL(href) // 释放掉blob对象
   },
   // 创建上传的FormData
-  createUploadFormData(target) {
+  createUploadFormData (target) {
     target = target || {}
     const formData = new FormData()
     // 向 formData 对象中添加文件

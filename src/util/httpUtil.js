@@ -4,7 +4,7 @@ import storageUtil from '@/util/storageUtil'
 import urlUtil from '@/util/urlUtil'
 import router from '../router/index'
 
-let basePath = '/serverBase/'
+let basePath = '/serviceBase/'
 
 // 默认连接地址，只在调试时有用
 if (process.env.NODE_ENV === 'development') {

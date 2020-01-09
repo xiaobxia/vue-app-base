@@ -12,7 +12,7 @@ for (const key in proxyTable) {
     pathRewrite: {}
   }
   row.pathRewrite[`^/${key}`] = ''
-  newProxyTable[`/${key}/serverBase`] = row
+  newProxyTable[`/${key}/serviceBase`] = row
 }
 
 module.exports = {

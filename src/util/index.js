@@ -1,26 +1,26 @@
-export function debounce(fn, delay) {
+export function debounce (fn, delay) {
   let timer = null
-  return function() {
+  return function () {
     const args = arguments
     const context = this
 
     if (timer) {
       clearTimeout(timer)
 
-      timer = setTimeout(function() {
+      timer = setTimeout(function () {
         fn.apply(context, args)
       }, delay)
     } else {
-      timer = setTimeout(function() {
+      timer = setTimeout(function () {
         fn.apply(context, args)
       }, delay)
     }
   }
 }
 
-export function throttle(func, delay) {
+export function throttle (func, delay) {
   var prev = Date.now()
-  return function() {
+  return function () {
     var context = this
     var args = arguments
     var now = Date.now()

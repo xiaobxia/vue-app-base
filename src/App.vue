@@ -1,87 +1,53 @@
 <template>
   <div id="app">
-    <div class="loading-wrap" v-if="!ifChecked">
-      <i class="fas fa-spinner fa-spin"></i>
-      <p>加载中...</p>
-    </div>
-    <template v-else>
-      <router-view v-if="subPath"/>
-      <template v-else>
-        <index v-if="tabSelect === 'index'"/>
-        <mine v-if="tabSelect === 'mine'"></mine>
-        <mt-tabbar v-model="tabSelect" :fixed="true">
-          <mt-tab-item id="index">
-            <!--<img src="./assets/logo.png" alt="" slot="icon">-->
-            <!--<i class="fas fa-donate" slot="icon"></i>-->
-            <h3>首页</h3>
-          </mt-tab-item>
-          <mt-tab-item id="mine">
-            <h3>我的</h3>
-          </mt-tab-item>
-        </mt-tabbar>
-      </template>
-    </template>
+    <router-view/>
   </div>
 </template>
 
 <script>
 import storageUtil from '@/util/storageUtil.js'
-import Mine from '@/tabViews/Mine/index.vue'
-import Index from '@/tabViews/Index/index.vue'
 
 export default {
   name: 'App',
   data () {
     return {
       subPath: false,
-      ifChecked: false
+      ifChecked: true
     }
   },
   watch: {
-    tabSelect (val) {
-
-    }
   },
   computed: {
-    tabSelect: {
-      get () {
-        return this.$store.state.tabSelect
-      },
-      set (val) {
-        storageUtil.setData('AppConfig', 'homeTabSelect', val)
-        this.$store.dispatch('setTabSelect', val)
-      }
-    }
   },
-  components: {Index, Mine},
-  mounted () {
+  created () {
     this.initPage()
   },
   methods: {
     initPage () {
-      this.checkLogin()
-      this.checkSubPath(this.$router.history.current.path)
-      // 刷新的时候before和after都不会执行
-      this.$router.beforeEach((transition, from, next) => {
-        console.log('before')
-        console.log(transition)
-        if (this.checkAuthPath(transition)) {
-          const user = storageUtil.getData('UserInfo')
-          this.checkUser(user, transition)
-        }
-        this.checkSubPath(transition.path)
-        next()
-      })
-      // after只有真正进入了页面才会执行
-      this.$router.afterEach((transition) => {
-        console.log('after')
-        // 验证路由过去是否需要登录状态
-        if (this.checkAuthPath(transition)) {
-          const user = storageUtil.getData('UserInfo')
-          this.checkUser(user, transition)
-        }
-        this.checkSubPath(transition.path)
-      })
+      console.log(this.$router.history.current.path)
+      // this.checkLogin()
+      // this.checkSubPath(this.$router.history.current.path)
+      // // 刷新的时候before和after都不会执行
+      // this.$router.beforeEach((transition, from, next) => {
+      //   console.log('before')
+      //   console.log(transition)
+      //   if (this.checkAuthPath(transition)) {
+      //     const user = storageUtil.getData('UserInfo')
+      //     this.checkUser(user, transition)
+      //   }
+      //   this.checkSubPath(transition.path)
+      //   next()
+      // })
+      // // after只有真正进入了页面才会执行
+      // this.$router.afterEach((transition) => {
+      //   console.log('after')
+      //   // 验证路由过去是否需要登录状态
+      //   if (this.checkAuthPath(transition)) {
+      //     const user = storageUtil.getData('UserInfo')
+      //     this.checkUser(user, transition)
+      //   }
+      //   this.checkSubPath(transition.path)
+      // })
     },
     checkLogin () {
       const token = localStorage.getItem('token') || ''
@@ -93,7 +59,7 @@ export default {
           })
           const user = storageUtil.getData('UserInfo')
           if (user.isLogin !== true) {
-            this.$router.push('/page/login')
+            this.$router.replace('/page/login')
           }
         } else {
           storageUtil.setData('UserInfo', {

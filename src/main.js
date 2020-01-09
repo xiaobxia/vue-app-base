@@ -9,6 +9,7 @@ import Vant from 'vant'
 import environmentUtil from './util/environmentUtil'
 import Http from '@/util/httpUtil.js'
 import store from './store'
+import './permission'
 
 Vue.use(Vant)
 

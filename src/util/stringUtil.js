@@ -1,4 +1,4 @@
-function getStringByte(str) {
+function getStringByte (str) {
   str = str || ''
   let len = 0
   for (let i = 0; i < str.length; i++) {
@@ -13,7 +13,7 @@ function getStringByte(str) {
 
 export default {
   getStringByte,
-  maxText(str, len) {
+  maxText (str, len) {
     // len是字节长度
     const strLen = getStringByte(str)
     if (str && strLen > len) {
