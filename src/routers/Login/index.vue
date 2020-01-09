@@ -33,11 +33,11 @@ export default {
     initPage () {
     },
     loginHandler () {
-      this.$http.post('auth/login', {account: this.account, password: md5(this.password)}).then((data) => {
+      this.$http.post('auth/login', {account: this.account, password: md5(this.password), platform: 'pc'}).then((data) => {
         if (data.success) {
           window._token = data.data.token
           localStorage.setItem('token', data.data.token)
-          this.$router.push('/')
+          this.$router.replace('/')
           storageUtil.setData('UserInfo', {
             ...data.data,
             isLogin: true

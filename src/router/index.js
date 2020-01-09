@@ -19,7 +19,7 @@ export const constantRouterMap = [
     path: '/helloWorld',
     component: lazyLoading('HelloWorld'),
     meta: {
-      auth: false
+      auth: true
     }
   },
   {
