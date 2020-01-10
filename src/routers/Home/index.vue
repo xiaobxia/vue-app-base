@@ -1,7 +1,7 @@
 <template>
   <div class="view-home">
     <div class="home-wrap clearfix">
-      <router-view/>
+      <router-view :key="key"/>
     </div>
     <van-tabbar v-model="active">
       <van-tabbar-item name="/home/main" icon="home-o" replace to="/home/main">主页</van-tabbar-item>
@@ -24,6 +24,11 @@ export default {
   watch: {
     '$route.path' (value) {
       this.active = value
+    }
+  },
+  computed: {
+    key() {
+      return this.$route.fullPath
     }
   },
   methods: {

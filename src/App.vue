@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view :key="key"/>
   </div>
 </template>
 
@@ -15,6 +15,9 @@ export default {
   watch: {
   },
   computed: {
+    key() {
+      return this.$route.fullPath
+    }
   },
   created () {
   },

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view/>
+    <router-view :key="key"/>
   </div>
 </template>
 
@@ -9,6 +9,11 @@ export default {
   name: 'PermissionRouterView',
   data () {
     return {
+    }
+  },
+  computed: {
+    key() {
+      return this.$route.fullPath
     }
   },
   created () {
