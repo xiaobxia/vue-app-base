@@ -8,6 +8,10 @@
       <router-link :to="'/testRoles/main'">test-roles-main</router-link>
       <router-link :to="'/testRoles/mine'">test-roles-mine</router-link>
     </div>
+    <div>
+      <router-link :to="'/testMenu/main'">test-menu-main</router-link>
+      <router-link :to="'/testMenu/mine'">test-menu-mine</router-link>
+    </div>
   </div>
 </template>
 

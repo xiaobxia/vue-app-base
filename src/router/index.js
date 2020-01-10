@@ -69,38 +69,70 @@ export const constantRouterMap = [
 ]
 
 export const asyncRouterMap = [
+  // roles方式
+  // {
+  //   path: '/testRoles',
+  //   name: 'TestRoles',
+  //   component: lazyLoading('PermissionRouterView'),
+  //   redirect: '/testRoles/main',
+  //   meta: {
+  //     auth: true,
+  //     roles: {
+  //       include: ['admin']
+  //     }
+  //   },
+  //   children: [
+  //     {
+  //       path: 'main',
+  //       component: lazyLoading('TestRoles/Main'),
+  //       name: 'TestRolesMain',
+  //       meta: {
+  //         auth: true,
+  //         roles: {
+  //           include: ['admin']
+  //         }
+  //       }
+  //     },
+  //     {
+  //       path: 'mine',
+  //       component: lazyLoading('TestRoles/Mine'),
+  //       name: 'TestRolesMine',
+  //       meta: {
+  //         auth: true,
+  //         roles: {
+  //           include: ['admin']
+  //         }
+  //       }
+  //     }
+  //   ]
+  // },
+  // 菜单方式
   {
-    path: '/testRoles',
-    name: 'TestRoles',
+    path: '/testMenu',
+    name: 'TestMenu',
     component: lazyLoading('PermissionRouterView'),
-    redirect: '/testRoles/main',
+    redirect: '/testMenu/main',
     meta: {
       auth: true,
-      roles: {
-        include: ['admin']
-      }
+      menu: '/testMenu'
     },
     children: [
       {
         path: 'main',
-        component: lazyLoading('TestRoles/Main'),
-        name: 'TestRolesMain',
+        component: lazyLoading('TestMenu/Main'),
+        name: 'TestMenuMain',
         meta: {
           auth: true,
-          roles: {
-            include: ['admin']
-          }
+          menu: '/testMenu/main'
         }
       },
       {
         path: 'mine',
-        component: lazyLoading('TestRoles/Mine'),
-        name: 'TestRolesMine',
+        component: lazyLoading('TestMenu/Mine'),
+        name: 'TestMenuMine',
         meta: {
           auth: true,
-          roles: {
-            include: ['admin']
-          }
+          menu: '/testMenu/mine'
         }
       }
     ]

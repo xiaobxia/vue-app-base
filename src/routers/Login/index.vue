@@ -39,10 +39,20 @@ export default {
           localStorage.setItem('token', data.data.token)
           storageUtil.setData('UserInfo', {
             ...data.data,
+            // 菜单模式
+            menu: ['/testMenu/main'],
             isLogin: true
           })
-          this.$store.dispatch('generateRoutes', { roles: data.data.roles || [] }).then(() => {
-            console.log('生成菜单')
+          // 通过roles的方式
+          // this.$store.dispatch('generateRoutes', { roles: data.data.roles || [] }).then(() => {
+          //   console.log('生成路由')
+          //   // router里面原本只有基础的路由，是后来添加的有权限的路由
+          //   this.$router.addRoutes(this.$store.getters.addRouters)
+          //   this.$router.replace('/')
+          // })
+          // 通过menu的方式
+          this.$store.dispatch('generateRoutesWithMenu', { menu: ['/testMenu/main'] }).then(() => {
+            console.log('生成路由')
             // router里面原本只有基础的路由，是后来添加的有权限的路由
             this.$router.addRoutes(this.$store.getters.addRouters)
             this.$router.replace('/')

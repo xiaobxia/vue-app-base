@@ -21,6 +21,13 @@ const permission = {
         commit('SET_ROUTERS', permissionUtil.filterAsyncRouter(asyncRouterMap, roles))
         resolve()
       })
+    },
+    generateRoutesWithMenu ({ commit }, data) {
+      return new Promise(resolve => {
+        const { menu } = data
+        commit('SET_ROUTERS', permissionUtil.filterAsyncRouterWithMenu(asyncRouterMap, menu))
+        resolve()
+      })
     }
   }
 }

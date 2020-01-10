@@ -27,9 +27,17 @@ router.beforeEach((to, from, next) => {
       next()
     }
   } else {
-    store.dispatch('generateRoutes', { roles: userInfo.roles || [] }).then(() => {
-      console.log('生成菜单')
-      console.log(store.getters.addRouters)
+    // 通过roles的方式
+    // store.dispatch('generateRoutes', { roles: userInfo.roles || [] }).then(() => {
+    //   console.log('生成路由')
+    //   console.log(store.getters.addRouters)
+    //   // router里面原本只有基础的路由，是后来添加的有权限的路由
+    //   router.addRoutes(store.getters.addRouters)
+    //   next({ path: to.path, replace: true })
+    // })
+    // 通过menu的方式
+    store.dispatch('generateRoutesWithMenu', { menu: userInfo.menu || [] }).then(() => {
+      console.log('生成路由')
       // router里面原本只有基础的路由，是后来添加的有权限的路由
       router.addRoutes(store.getters.addRouters)
       next({ path: to.path, replace: true })
