@@ -15,7 +15,7 @@ export default {
   watch: {
   },
   computed: {
-    key() {
+    key () {
       return this.$route.fullPath
     }
   },

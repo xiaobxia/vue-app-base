@@ -27,7 +27,7 @@ export default {
     }
   },
   computed: {
-    key() {
+    key () {
       return this.$route.fullPath
     }
   },

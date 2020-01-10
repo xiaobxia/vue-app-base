@@ -12,12 +12,11 @@ export default {
     }
   },
   computed: {
-    key() {
+    key () {
       return this.$route.fullPath
     }
   },
   created () {
-    console.log('iiiiii')
   },
   methods: {
   }
