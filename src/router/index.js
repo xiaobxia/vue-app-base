@@ -74,6 +74,12 @@ export const asyncRouterMap = [
     name: 'TestRoles',
     component: lazyLoading('PermissionRouterView'),
     redirect: '/testRoles/main',
+    meta: {
+      auth: true,
+      roles: {
+        include: ['admin']
+      }
+    },
     children: [
       {
         path: 'main',
@@ -82,7 +88,7 @@ export const asyncRouterMap = [
         meta: {
           auth: true,
           roles: {
-            include: ['test']
+            include: ['admin']
           }
         }
       },
@@ -91,7 +97,10 @@ export const asyncRouterMap = [
         component: lazyLoading('TestRoles/Mine'),
         name: 'TestRolesMine',
         meta: {
-          auth: true
+          auth: true,
+          roles: {
+            include: ['admin']
+          }
         }
       }
     ]

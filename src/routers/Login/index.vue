@@ -37,10 +37,15 @@ export default {
         if (data.success) {
           window._token = data.data.token
           localStorage.setItem('token', data.data.token)
-          this.$router.replace('/')
           storageUtil.setData('UserInfo', {
             ...data.data,
             isLogin: true
+          })
+          this.$store.dispatch('generateRoutes', { roles: data.data.roles || [] }).then(() => {
+            console.log('生成菜单')
+            // router里面原本只有基础的路由，是后来添加的有权限的路由
+            this.$router.addRoutes(this.$store.getters.addRouters)
+            this.$router.replace('/')
           })
         } else {
         }
