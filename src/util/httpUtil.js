@@ -21,6 +21,9 @@ axios.interceptors.request.use(function (config) {
 axios.interceptors.response.use(function (response) {
   if (response.data.success === false) {
     if (response.data.code === 401) {
+      storageUtil.setData('UserInfo', {
+        isLogin: false
+      })
       router.replace('/page/login')
     }
     return Promise.reject(new Error(response.data.message))

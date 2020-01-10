@@ -68,6 +68,36 @@ export const constantRouterMap = [
   }
 ]
 
+export const asyncRouterMap = [
+  {
+    path: '/testRoles',
+    name: 'TestRoles',
+    component: lazyLoading('PermissionRouterView'),
+    redirect: '/testRoles/main',
+    children: [
+      {
+        path: 'main',
+        component: lazyLoading('TestRoles/Main'),
+        name: 'TestRolesMain',
+        meta: {
+          auth: true,
+          roles: {
+            include: ['test']
+          }
+        }
+      },
+      {
+        path: 'mine',
+        component: lazyLoading('TestRoles/Mine'),
+        name: 'TestRolesMine',
+        meta: {
+          auth: true
+        }
+      }
+    ]
+  }
+]
+
 export default new Router({
   // hash, history
   mode: 'hash',

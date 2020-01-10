@@ -1,13 +1,6 @@
 <template>
   <div class="page-no-permission">
-    <mt-header title="没有权限" :fixed="true">
-      <mt-button slot="left" @click="backHandler">
-        <i class="fas fa-chevron-left"></i>
-      </mt-button>
-    </mt-header>
-    <div class="main-body">
-      <h1>没有权限</h1>
-    </div>
+    <h1>没有权限</h1>
   </div>
 </template>
 

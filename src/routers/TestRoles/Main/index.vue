@@ -1,19 +1,15 @@
 <template>
-  <div class="home-main">
-    <span>home-main</span>
+  <div class="page-test-roles-main">
+    <span>test-roles-main</span>
     <div>
       <router-link :to="'/helloWorld'">hello-world</router-link>
-    </div>
-    <div>
-      <router-link :to="'/testRoles/main'">test-roles-main</router-link>
-      <router-link :to="'/testRoles/mine'">test-roles-mine</router-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeMain',
+  name: 'TestRolesMain',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

@@ -1,13 +1,6 @@
 <template>
   <div class="page-404">
-    <mt-header title="404" :fixed="true">
-      <mt-button slot="left" @click="backHandler">
-        <i class="fas fa-chevron-left"></i>
-      </mt-button>
-    </mt-header>
-    <div class="main-body">
-      <h1>404</h1>
-    </div>
+    <h1>404</h1>
   </div>
 </template>
 
