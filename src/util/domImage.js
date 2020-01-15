@@ -39,7 +39,8 @@ function convertToImage (container, options = {}) {
     ...options
   }
   return html2canvas(container, ops).then(canvas => {
-    Canvas2Image.saveAsPNG(canvas, canvas.width, canvas.height)
+    // 下载图片
+    // Canvas2Image.saveAsPNG(canvas, canvas.width, canvas.height)
     // 返回base64
     return Canvas2Image.convertToPNG(canvas, canvas.width, canvas.height)
   })
