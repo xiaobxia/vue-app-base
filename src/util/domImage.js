@@ -1,5 +1,5 @@
 import html2canvas from 'html2canvas'
-import Canvas2Image from './canvas2image'
+import Canvas2Image from '@/lib/canvas2image'
 
 // 创建用于绘制的基础canvas画布
 function createBaseCanvas (width, height) {
