@@ -12,6 +12,9 @@
       <router-link :to="'/testMenu/main'">test-menu-main</router-link>
       <router-link :to="'/testMenu/mine'">test-menu-mine</router-link>
     </div>
+    <div>
+      <router-link :to="'/toImageDemo'">toImageDemo</router-link>
+    </div>
   </div>
 </template>
 

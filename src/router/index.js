@@ -31,6 +31,14 @@ export const constantRouterMap = [
     }
   },
   {
+    name: 'ToImageDemo',
+    path: '/toImageDemo',
+    component: lazyLoading('ToImageDemo'),
+    meta: {
+      auth: false
+    }
+  },
+  {
     path: '/home',
     component: lazyLoading('Home'),
     name: 'Home',
