@@ -47,6 +47,7 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   #to-image-demo {
+    background-color: rgba(120,20,250, 0.2);
     .a {
       font-size: 20PX;
       color: red;
