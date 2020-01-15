@@ -1,3 +1,5 @@
+// 保存部分可以用file-saver代替
+
 const fileUtil = {
   /**
    * 获取文件名后缀

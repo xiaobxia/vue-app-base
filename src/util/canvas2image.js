@@ -1,3 +1,5 @@
+import { saveAs } from 'file-saver'
+
 var Canvas2Image = (function () {
   // check if support sth.
   var $support = (function () {
@@ -37,8 +39,9 @@ var Canvas2Image = (function () {
     return canvas.toDataURL(type)
   }
 
-  function saveFile (strData) {
-    document.location.href = strData
+  function saveFile (strData, type) {
+    saveAs(strData, `image.${type}`)
+    // document.location.href = strData
   }
 
   function genImage (strData) {
@@ -163,6 +166,7 @@ var Canvas2Image = (function () {
    * @param {Number} [optional] png height
    */
   var saveAsImage = function (canvas, width, height, type) {
+    var rawType = type
     if ($support.canvas && $support.dataURL) {
       if (typeof canvas === 'string') {
         canvas = document.getElementById(canvas)
@@ -175,10 +179,10 @@ var Canvas2Image = (function () {
       if (/bmp/.test(type)) {
         var data = getImageData(scaleCanvas(canvas, width, height))
         strData = genBitmapImage(data)
-        saveFile(makeURI(strData, downloadMime))
+        saveFile(makeURI(strData, downloadMime), type)
       } else {
         strData = getDataURL(canvas, type, width, height)
-        saveFile(strData.replace(type, downloadMime))
+        saveFile(strData.replace(type, downloadMime), rawType)
       }
     }
   }
