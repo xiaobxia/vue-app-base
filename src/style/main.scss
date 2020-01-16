@@ -9,6 +9,8 @@ body {
   margin: 0;
   background-color: $body-color;
   font-size: 30px;
+  // 全站灰色
+  // filter: grayscale(100%);
 }
 
 ::-webkit-scrollbar {
